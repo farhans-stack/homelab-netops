@@ -1,11 +1,16 @@
 ---
 - name: Test Semaphore pipeline
   hosts: all
+  gather_facts: no
 
   tasks:
-    - name: ping test
+    - name: Ansible connectivity test
+      ansible.builtin.ping:
+
+    - name: ping real host (ICMP test)
       command: ping -c 5 192.168.100.26
       register: result
 
-    - debug:
+    - name: show ICMP output
+      debug:
         var: result.stdout
