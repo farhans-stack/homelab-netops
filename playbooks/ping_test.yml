@@ -3,6 +3,9 @@
   hosts: all
   gather_facts: no
 
+  environment:
+    ANSIBLE_STDOUT_CALLBACK: default
+
   tasks:
     - name: Ansible connectivity test
       ansible.builtin.ping:
