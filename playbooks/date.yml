@@ -1,0 +1,13 @@
+---
+- name: Date command test
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Get current date and time
+      command: date
+      register: result
+
+    - name: Show date output
+      debug:
+        var: result.stdout
